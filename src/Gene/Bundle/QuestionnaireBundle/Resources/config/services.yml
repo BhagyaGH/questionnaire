@@ -1,0 +1,7 @@
+parameters:
+#    gene_questionnaire.example.class: Gene\Bundle\QuestionnaireBundle\Example
+
+services:
+#    gene_questionnaire.example:
+#        class: %gene_questionnaire.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

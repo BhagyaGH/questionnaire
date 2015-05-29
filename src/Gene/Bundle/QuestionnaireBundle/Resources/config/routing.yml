@@ -1,0 +1,8 @@
+gene_questionnaire_homepage:
+    path:     /
+    defaults: { _controller: GeneQuestionnaireBundle:Default:index }
+    
+gene_questionnaire_question:
+    path:   /question/{id}
+    defaults: { _controller: GeneQuestionnaireBundle:Default:question }
+    

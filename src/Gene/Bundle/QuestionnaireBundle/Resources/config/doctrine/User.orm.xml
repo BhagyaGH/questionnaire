@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Gene\Bundle\QuestionnaireBundle\Entity\User" table="user">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="sex" type="string" column="sex" length="1" nullable="false"/>
+    <field name="birthYear" type="date" column="birth_year" nullable="false"/>
+    <field name="country" type="string" column="country" length="2" nullable="false"/>
+    <field name="isReligiousAffiliation" type="boolean" column="is_religious_affiliation" nullable="false"/>
+    <field name="religiousAffiliationType" type="string" column="religious_affiliation_type" length="15" nullable="false"/>
+    <field name="education" type="string" column="education" length="20" nullable="false"/>
+    <field name="isHealthRelated" type="boolean" column="is_health_related" nullable="false"/>
+    <field name="healthRelatedWork" type="string" column="health_related_work" length="20" nullable="false"/>
+    <field name="geneticEngineering" type="boolean" column="genetic_engineering" nullable="false"/>
+    <field name="financialSituation" type="boolean" column="financial_situation" nullable="false"/>
+    <field name="isInheritedGenetic" type="boolean" column="is_inherited_genetic" nullable="false"/>
+    <field name="inheritedGeneticWho" type="string" column="inherited_genetic_who" length="20" nullable="false"/>
+    <field name="inheritedGeneticWhat" type="string" column="inherited_genetic_what" length="20" nullable="false"/>
+    <many-to-many field="question" target-entity="QuestionEnglish" inversed-by="user">
+      <join-table name="user_answers">
+        <join-columns>
+          <join-column name="user_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="question_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
