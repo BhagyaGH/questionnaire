@@ -12,10 +12,15 @@ class User
     /**
      * @var string
      */
+    private $language;
+
+    /**
+     * @var string
+     */
     private $sex;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $birthYear;
 
@@ -23,6 +28,11 @@ class User
      * @var string
      */
     private $country;
+
+    /**
+     * @var string
+     */
+    private $ethnicity;
 
     /**
      * @var boolean
@@ -40,7 +50,7 @@ class User
     private $education;
 
     /**
-     * @var boolean
+     * @var string
      */
     private $isHealthRelated;
 
@@ -50,12 +60,12 @@ class User
     private $healthRelatedWork;
 
     /**
-     * @var boolean
+     * @var string
      */
     private $geneticEngineering;
 
     /**
-     * @var boolean
+     * @var string
      */
     private $financialSituation;
 
@@ -75,6 +85,16 @@ class User
     private $inheritedGeneticWhat;
 
     /**
+     * @var \DateTime
+     */
+    private $timestamp;
+
+    /**
+     * @var integer
+     */
+    private $reference;
+
+    /**
      * @var integer
      */
     private $id;
@@ -90,6 +110,29 @@ class User
     public function __construct()
     {
         $this->question = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set language
+     *
+     * @param string $language
+     * @return User
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return string 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
     }
 
     /**
@@ -118,7 +161,7 @@ class User
     /**
      * Set birthYear
      *
-     * @param \DateTime $birthYear
+     * @param string $birthYear
      * @return User
      */
     public function setBirthYear($birthYear)
@@ -131,7 +174,7 @@ class User
     /**
      * Get birthYear
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getBirthYear()
     {
@@ -159,6 +202,29 @@ class User
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set ethnicity
+     *
+     * @param string $ethnicity
+     * @return User
+     */
+    public function setEthnicity($ethnicity)
+    {
+        $this->ethnicity = $ethnicity;
+
+        return $this;
+    }
+
+    /**
+     * Get ethnicity
+     *
+     * @return string 
+     */
+    public function getEthnicity()
+    {
+        return $this->ethnicity;
     }
 
     /**
@@ -233,7 +299,7 @@ class User
     /**
      * Set isHealthRelated
      *
-     * @param boolean $isHealthRelated
+     * @param string $isHealthRelated
      * @return User
      */
     public function setIsHealthRelated($isHealthRelated)
@@ -246,7 +312,7 @@ class User
     /**
      * Get isHealthRelated
      *
-     * @return boolean 
+     * @return string 
      */
     public function getIsHealthRelated()
     {
@@ -279,7 +345,7 @@ class User
     /**
      * Set geneticEngineering
      *
-     * @param boolean $geneticEngineering
+     * @param string $geneticEngineering
      * @return User
      */
     public function setGeneticEngineering($geneticEngineering)
@@ -292,7 +358,7 @@ class User
     /**
      * Get geneticEngineering
      *
-     * @return boolean 
+     * @return string 
      */
     public function getGeneticEngineering()
     {
@@ -302,7 +368,7 @@ class User
     /**
      * Set financialSituation
      *
-     * @param boolean $financialSituation
+     * @param string $financialSituation
      * @return User
      */
     public function setFinancialSituation($financialSituation)
@@ -315,7 +381,7 @@ class User
     /**
      * Get financialSituation
      *
-     * @return boolean 
+     * @return string 
      */
     public function getFinancialSituation()
     {
@@ -389,6 +455,52 @@ class User
     public function getInheritedGeneticWhat()
     {
         return $this->inheritedGeneticWhat;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return User
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param integer $reference
+     * @return User
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return integer 
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 
     /**

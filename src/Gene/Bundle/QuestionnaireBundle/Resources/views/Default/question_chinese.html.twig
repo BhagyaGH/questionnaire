@@ -1,0 +1,115 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>您是否赞同对于细胞的基因编辑呢 {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_ch', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> 非常同意<br>
+                <input type="radio" name="answer" value="A"> 同意<br>
+                <input type="radio" name="answer" value="N"> 中立<br>
+                <input type="radio" name="answer" value="D"> 不同意<br>
+                <input type="radio" name="answer" value="SD"> 坚决反对<br>
+                <input type="radio" name="answer" value="IDK"> 不知道<br>
+                <br>
+                <input type="submit" value="下一个">
+
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>如果您可以安全的进行胚胎基因改造，你会使用这项技术改变什么: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_ch', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> 有<br>
+                <input type="radio" name="answer" value="NO"> 无<br>
+                <br>
+                <input type="submit" value="下一个">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>如果您可以安全的进行胚胎基因改造，你会使用这项技术改变什么: {{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_ch', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="下一个">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_ch', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> 非常同意<br>
+                <input type="radio" name="answer" value="A"> 同意<br>
+                <input type="radio" name="answer" value="N"> 中立<br>
+                <input type="radio" name="answer" value="D"> 不同意<br>
+                <input type="radio" name="answer" value="SD"> 坚决反对<br>
+                <input type="radio" name="answer" value="IDK"> 不知道<br>
+                <br>
+                <input type="submit" value="下一个">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_ch', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="下一个">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_ch', {'id': question.id - 1, 'user': user})}}">
+                <input type="submit" value="前面的">
+            </form>
+        {% endif %}
+
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>危及生命的遗传疾病将会导致人们的过早死亡。</td>
+                    </tr>
+                    <tr>
+                        <td>使人衰弱. 的遗传疾病会损害人体机能，影响生活质量。</td>
+                    </tr>
+                    <tr>
+                        <td>胚胎是婴儿和胎儿的早期形态。</td>
+                    </tr>
+                    <tr>
+                        <td>对胚胎实行基因工程大致地意味着将来所有的下一代都将是基因工程的产物。这就意味着病症或遗传现象将不会遗传给下一代。</td>
+                    </tr>
+                    <tr>
+                        <td>对于孩子或成人实行基因工程将意味着对下一代不会产生基因工程的产物。这就意味着疾病或遗传现象将会传给下一代。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

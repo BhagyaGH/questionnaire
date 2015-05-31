@@ -1,0 +1,29 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h4>你自己会接受此項基因治疗吗?</h4>
+            <h4>你认为一项科技可能会改变人类吗</h4>
+
+            <form action="{{path('gene_questionnaire_user_ch')}}">
+                <input type="submit" value="开始调查">
+            </form>
+        </div>
+
+        <br>
+
+        <p>{{content[11].question}}</p>
+        <p>{{content[12].question}}</p>
+        <p>{{content[13].question}}</p>
+
+    </body>
+
+{% endblock %}

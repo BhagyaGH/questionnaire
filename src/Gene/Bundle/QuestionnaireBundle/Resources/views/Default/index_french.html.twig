@@ -1,0 +1,29 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h4>Le feriez-vous?</h4>
+            <h4>Donnez votre opinion sur une technologie qui pourrait changer l’humanité</h4>
+
+            <form action="{{path('gene_questionnaire_user_fr')}}">
+                <input type="submit" value="Commencer l’enquête">
+            </form>
+        </div>
+
+        <br>
+
+        <p>{{content[11].question}}</p>
+        <p>{{content[12].question}}</p>
+        <p>{{content[13].question}}</p>
+
+    </body>
+
+{% endblock %}

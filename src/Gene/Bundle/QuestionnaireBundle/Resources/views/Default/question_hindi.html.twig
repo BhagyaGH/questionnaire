@@ -1,0 +1,114 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>आपकोशिकाओं(cell)केआनुवंशिकसंपादन(genetic editing)केउपयोगकेbaare me साथकितनेसहमतहै {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_hn', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> दृढ़तापूर्वकसहमत<br>
+                <input type="radio" name="answer" value="A"> सहमत<br>
+                <input type="radio" name="answer" value="N"> तटस्थ<br>
+                <input type="radio" name="answer" value="D"> असहमत<br>
+                <input type="radio" name="answer" value="SD"> दृढ़तापूर्वकअसहमत<br>
+                <input type="radio" name="answer" value="IDK"> मुझेनहींपता<br>
+                <br>
+                <input type="submit" value="अगला">
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>अगरआपसुरक्षितरूपसेअपनेभ्रुणकाआनुवंशिकसंपादनकरसकतेहैतोक्याआपइसतकनीककाप्रयोगयहनिर्धारितकरनेकेलिएकरेंगे: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_hn', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> Yes<br>
+                <input type="radio" name="answer" value="NO"> No<br>
+                <br>
+                <input type="submit" value="अगला">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>अगरआपसुरक्षितरूपसेअपनेभ्रुणकाआनुवंशिकसंपादनकरसकतेहैतोक्याआपइसतकनीककाप्रयोगयहनिर्धारितकरनेकेलिएकरेंगे: {{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_hn', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="अगला">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_hn', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> दृढ़तापूर्वकसहमत<br>
+                <input type="radio" name="answer" value="A"> सहमत<br>
+                <input type="radio" name="answer" value="N"> तटस्थ<br>
+                <input type="radio" name="answer" value="D"> असहमत<br>
+                <input type="radio" name="answer" value="SD"> दृढ़तापूर्वकअसहमत<br>
+                <input type="radio" name="answer" value="IDK"> मुझेनहींपता<br>
+                <br>
+                <input type="submit" value="अगला">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_hn', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="अगला">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_hn', {'id': (question.id - 1), 'user': user})}}">
+                <input type="submit" value="पिछला">
+            </form>
+        {% endif %}
+
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>जीवनको भय स्वरुपआनुवांशिकबीमारी  अकालमृत्युकोन्यौतादेसकतीहै| एकदुर्बलआनुवंशिकरोगव्यक्तिके  जीवनकीकार्यकरनेकी  क्षमताऔर  गुणवत्ताकोकमकरदेताहै|</td>
+                    </tr>
+                    <tr>
+                        <td>भ्रूण,अजन्मेबच्चेया गर्भ काप्रारंभिकचरण  है।</td>
+                    </tr>
+                    <tr>
+                        <td>एम्ब्रीओ इंजीनियरिंगजीनोमकामतलबहोगाकि  भविष्यकी  सब  पीढ़ियाँमें  जीनोमकेसंपादितसंस्करणहोगे| इसकामतलबहैयहबीमारीयाहालतउनके  बच्चों  तक नहीं जायेगी </td>
+                    </tr>
+                    <tr>
+                        <td>एकबच्चेयावयस्क काजीनोमइंजीनियरिंगकामतलब  भविष्यकिसब  पीढ़ियोंमें  जीनोमकेसंपादितसंस्करणनहीं आएँगे</td>
+                    </tr>
+                    <tr>
+                        <td>इसकाअर्थयहहैकिइसबीमारीयाहालतउनकेबच्चोंमेंआगे जा सकती है|</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

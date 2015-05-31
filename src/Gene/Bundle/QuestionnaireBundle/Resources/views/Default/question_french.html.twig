@@ -1,0 +1,114 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>À quel point êtes-vous d’accord avec la manipulation génétique des cellules {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Entièrement d’accord<br>
+                <input type="radio" name="answer" value="A"> D’accord<br>
+                <input type="radio" name="answer" value="N"> Neutre<br>
+                <input type="radio" name="answer" value="D"> En désaccord<br>
+                <input type="radio" name="answer" value="SD"> Particulièrement en désaccord<br>
+                <input type="radio" name="answer" value="IDK"> Je ne sais pas<br>
+                <br>
+                <input type="submit" value="Next">
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>Si vous pouviez modifier génétiquement votre fœtus en toute sécurité, utiliseriez-vous cette technologie pour: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> Oui<br>
+                <input type="radio" name="answer" value="NO"> Non<br>
+                <br>
+                <input type="submit" value="Suivant">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>Si vous pouviez modifier génétiquement votre fœtus en toute sécurité, utiliseriez-vous cette technologie pour: {{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Suivant">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Entièrement d’accord<br>
+                <input type="radio" name="answer" value="A"> D’accord<br>
+                <input type="radio" name="answer" value="N"> Neutre<br>
+                <input type="radio" name="answer" value="D"> En désaccord<br>
+                <input type="radio" name="answer" value="SD"> Particulièrement en désaccord<br>
+                <input type="radio" name="answer" value="IDK"> Je ne sais pas<br>
+                <br>
+                <input type="submit" value="Suivant">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Suivant">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_fr', {'id': (question.id - 1), 'user': user})}}">
+                <input type="submit" value="Précédent">
+            </form>
+        {% endif %}
+
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Une maladie génétique dangereuse est une maladie pouvant mener à une mort prématurée.</td>
+                    </tr>
+                    <tr>
+                        <td>Une maladie génétique handicapante est une maladie qui réduit les fonctionnalités d’une personne ou sa qualité de vie.</td>
+                    </tr>
+                    <tr>
+                        <td>Un embryon est le stage embryonnaire d’un fœtus.</td>
+                    </tr>
+                    <tr>
+                        <td>L’ingénierie génétique sur un embryon aura généralement pour conséquence la version modifiée de ces gènes pour les générations futures. Ceci signifie que la maladie ou le problème ne sera PAS transmis aux enfants.</td>
+                    </tr>
+                    <tr>
+                        <td>L’ingénierie génétique sur un enfant ou un adulte aura généralement pour conséquence de ne PAS transmettre aux générations futures la version éditée de ce gène. Ceci signifie que ni la maladie ni le problème ne sera transmis à leurs enfants.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

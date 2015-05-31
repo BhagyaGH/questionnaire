@@ -1,0 +1,114 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>¿Qué tan a favor estás del uso de edición genética de células en: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_es', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Estoy completamente de acuerdo<br>
+                <input type="radio" name="answer" value="A"> Estoy de acuerdo<br>
+                <input type="radio" name="answer" value="N"> Mi opinión es neutral<br>
+                <input type="radio" name="answer" value="D"> Estoy en desacuerdo<br>
+                <input type="radio" name="answer" value="SD"> Estoy completamente en desacuerdo<br>
+                <input type="radio" name="answer" value="IDK"> No lo sé<br>
+                <br>
+                <input type="submit" value="Siguiente">
+
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>Si pudieras editar genéticamente de forma segura tu embrión, utilizarías esta tecnología para determinar: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_es', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> Si<br>
+                <input type="radio" name="answer" value="NO"> No<br>
+                <br>
+                <input type="submit" value="Siguiente">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>Si pudieras editar genéticamente de forma segura tu embrión, utilizarías esta tecnología para determinar: {{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_es', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Siguiente">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_es', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Estoy completamente de acuerdo<br>
+                <input type="radio" name="answer" value="A"> Estoy de acuerdo<br>
+                <input type="radio" name="answer" value="N"> Mi opinión es neutral<br>
+                <input type="radio" name="answer" value="D"> Estoy en desacuerdo<br>
+                <input type="radio" name="answer" value="SD"> Estoy completamente en desacuerdo<br>
+                <input type="radio" name="answer" value="IDK"> No lo sé<br>
+                <br>
+                <input type="submit" value="Siguiente">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_es', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Siguiente">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_es', {'id': question.id - 1, 'user': user})}}">
+                <input type="submit" value="Anterior">
+            </form>
+        {% endif %}
+
+        <br>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Una enfermedad genética que amenaza la vida es aquella que conduce a una muerte prematura.</td>
+                    </tr>
+                    <tr>
+                        <td>Una enfermedad genética debilitante es aquella que reduce el funcionamiento o la calidad de vida de una persona.</td>
+                    </tr>
+                    <tr>
+                        <td>Un embrión es un bebé nonato o feto en etapa temprana de desarrollo.</td>
+                    </tr>
+                    <tr>
+                        <td>Practicar ingeniería genómica en un embrión por lo general significa que todas las generaciones futuras contendrán la versión editada del genoma. Esto significa que la enfermedad o el trastorno NO puede ser transmitido a los hijos.</td>
+                    </tr>
+                    <tr>
+                        <td>Practicar ingeniería genómica en un niño o un adulto por lo general significa que todas las generaciones futuras no contendrán la versión editada del genoma. Esto significa que la enfermedad o el trastorno NO puede ser transmitido a los hijos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

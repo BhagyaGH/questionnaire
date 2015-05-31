@@ -1,0 +1,115 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>細胞の中で遺伝子を組み替えすることにどのくらい同意しますか {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_jp', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> 強く同意<br>
+                <input type="radio" name="answer" value="A"> 同意<br>
+                <input type="radio" name="answer" value="N"> 中立<br>
+                <input type="radio" name="answer" value="D"> 反対<br>
+                <input type="radio" name="answer" value="SD"> 強く反対<br>
+                <input type="radio" name="answer" value="IDK"> 分からない<br>
+                <br>
+                <input type="submit" value="次">
+
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>もし問題なく安全に 胚を変化させることが出来たら、以下に対し使用しますか：{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_jp', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> はい<br>
+                <input type="radio" name="answer" value="NO"> いいえ<br>
+                <br>
+                <input type="submit" value="次">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>もし問題なく安全に 胚を変化させることが出来たら、以下に対し使用しますか：{{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_jp', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="次">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_jp', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> 強く同意<br>
+                <input type="radio" name="answer" value="A"> 同意<br>
+                <input type="radio" name="answer" value="N"> 中立<br>
+                <input type="radio" name="answer" value="D"> 反対<br>
+                <input type="radio" name="answer" value="SD"> 強く反対<br>
+                <input type="radio" name="answer" value="IDK"> 分からない<br>
+                <br>
+                <input type="submit" value="次">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_jp', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="次">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_jp', {'id': question.id - 1, 'user': user})}}">
+                <input type="submit" value="前">
+            </form>
+        {% endif %}
+
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>致命的な遺伝病は早死に至ります。</td>
+                    </tr>
+                    <tr>
+                        <td>重大な遺伝病は人の機能や生活水準に影響を及ぼします。</td>
+                    </tr>
+                    <tr>
+                        <td>胚とは胎児における初期の段階です。</td>
+                    </tr>
+                    <tr>
+                        <td>胚を作る遺伝子工学は、将来全ての世代が編集されたゲノムを持つことを意味しています。このことは、症病や病態が子供たちに遺伝されないことを意味します。</td>
+                    </tr>
+                    <tr>
+                        <td>子供や大人に遺伝子工学を使うことは、将来全ての世代が一切編集されたゲノムを持たないことを意味しています。このことは、症病や病態が子供達に遺伝する可能性があることを意味します。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

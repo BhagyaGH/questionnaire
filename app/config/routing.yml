@@ -1,4 +1,3 @@
 gene_questionnaire:
     resource: "@GeneQuestionnaireBundle/Resources/config/routing.yml"
     prefix:   /
-

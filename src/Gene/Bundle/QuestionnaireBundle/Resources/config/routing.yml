@@ -1,8 +1,222 @@
 gene_questionnaire_homepage:
     path:     /
+    defaults: { _controller: GeneQuestionnaireBundle:Default:home }
+    
+gene_questionnaire_user_q:
+    path:     /user/{user}
     defaults: { _controller: GeneQuestionnaireBundle:Default:index }
     
 gene_questionnaire_question:
-    path:   /question/{id}
+    path:   /question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:Default:question }
+    
+gene_questionnaire_save_answer:
+    path:   /saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:Default:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_english:
+    path:   /tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:User:english }
+    
+gene_questionnaire_user_save:
+    path:   /tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:User:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final:
+    path:   /thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:Default:thankyou }
+    
+
+
+gene_questionnaire_homepage_ch:
+    path:     /ch/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:home }
+    
+gene_questionnaire_user_q_ch:
+    path:     /ch/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:index }
+    
+gene_questionnaire_question_ch:
+    path:   /ch/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:question }
+    
+gene_questionnaire_save_answer_ch:
+    path:   /ch/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_ch:
+    path:   /ch/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserChinese:chinese }
+    
+gene_questionnaire_user_save_ch:
+    path:   /ch/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserChinese:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_ch:
+    path:   /ch/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:thankyou }
+    
+    
+    
+gene_questionnaire_homepage_fr:
+    path:     /fr/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:home }
+    
+gene_questionnaire_user_q_fr:
+    path:     /fr/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:index }
+    
+gene_questionnaire_question_fr:
+    path:   /fr/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:question }
+    
+gene_questionnaire_save_answer_fr:
+    path:   /fr/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_fr:
+    path:   /fr/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserFrench:french }
+    
+gene_questionnaire_user_save_fr:
+    path:   /fr/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserFrench:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_fr:
+    path:   /fr/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:thankyou }
+    
+    
+
+gene_questionnaire_homepage_hn:
+    path:     /hn/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:home }
+    
+gene_questionnaire_user_q_hn:
+    path:     /hn/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:index }
+    
+gene_questionnaire_question_hn:
+    path:   /hn/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:question }
+    
+gene_questionnaire_save_answer_hn:
+    path:   /hn/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_hn:
+    path:   /hn/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserHindi:hindi }
+    
+gene_questionnaire_user_save_hn:
+    path:   /hn/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserHindi:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_hn:
+    path:   /hn/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:thankyou }  
+    
+    
+    
+gene_questionnaire_homepage_jp:
+    path:     /jp/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:home }
+    
+gene_questionnaire_user_q_jp:
+    path:     /jp/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:index }
+    
+gene_questionnaire_question_jp:
+    path:   /jp/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:question }
+    
+gene_questionnaire_save_answer_jp:
+    path:   /jp/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_jp:
+    path:   /jp/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserJapanese:japanese }
+    
+gene_questionnaire_user_save_jp:
+    path:   /jp/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserJapanese:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_jp:
+    path:   /jp/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:thankyou }  
+    
+    
+        
+gene_questionnaire_homepage_es:
+    path:     /es/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:home }
+    
+gene_questionnaire_user_q_es:
+    path:     /es/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:index }
+    
+gene_questionnaire_question_es:
+    path:   /es/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:question }
+    
+gene_questionnaire_save_answer_es:
+    path:   /es/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_es:
+    path:   /es/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserSpanish:spanish }
+    
+gene_questionnaire_user_save_es:
+    path:   /es/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserSpanish:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_es:
+    path:   /es/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:thankyou }  
+    
+    
+    
+gene_questionnaire_homepage_tr:
+    path:     /tr/
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:home }
+    
+gene_questionnaire_user_q_tr:
+    path:     /tr/user/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:index }
+    
+gene_questionnaire_question_tr:
+    path:   /tr/question/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:question }
+    
+gene_questionnaire_save_answer_tr:
+    path:   /tr/saveAnswer/{id}/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:saveAnswer }
+    requirements: { _method: POST }
+    
+gene_questionnaire_user_tr:
+    path:   /tr/tellusaboutyou
+    defaults: { _controller: GeneQuestionnaireBundle:UserTurkish:turkish }
+    
+gene_questionnaire_user_save_tr:
+    path:   /tr/tellusaboutyou/save
+    defaults: { _controller: GeneQuestionnaireBundle:UserTurkish:saveUser }
+    requirements: { _method: POST }
+
+gene_questionnaire_final_tr:
+    path:   /tr/thankyou
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:thankyou }  
     

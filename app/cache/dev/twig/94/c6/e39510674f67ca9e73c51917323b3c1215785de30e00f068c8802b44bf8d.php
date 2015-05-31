@@ -152,7 +152,7 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
     {
         // line 50
         echo "                        <div class=\"well\">
-                            <h5>Sidebar</h5>
+                            <h3>Human Gene Editing</h3>
                         </div>
                     ";
     }

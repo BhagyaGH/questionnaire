@@ -1,0 +1,115 @@
+{% extends 'GeneQuestionnaireBundle::base.html.twig' %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {% if question.id < 6 %}
+            <div class="container">
+                <p>Hücre genetiğini düzeltme yönteminin kullanımına ne kadar katılıyorsunuz {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
+                <input type="radio" name="answer" value="A"> Katılıyorum<br>
+                <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
+                <input type="radio" name="answer" value="D"> Katılmıyorum<br>
+                <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
+                <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
+                <br>
+                <input type="submit" value="Bir sonraki">
+
+            </form>
+
+        {% elseif question.id < 9 %}
+
+            <div class="container">
+                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: {{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="YES" required value="YES"> Evet<br>
+                <input type="radio" name="answer" value="NO"> Hayır<br>
+                <br>
+                <input type="submit" value="Bir sonraki">
+
+            </form>
+
+        {% elseif question.id == 9 %}    
+
+            <div class="container">
+                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: {{ question.question }}</p> 
+            </div>
+            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Bir sonraki">
+            </form>
+
+        {% elseif question.id == 10 %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
+                <input type="radio" name="answer" value="A"> Katılıyorum<br>
+                <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
+                <input type="radio" name="answer" value="D"> Katılmıyorum<br>
+                <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
+                <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
+                <br>
+                <input type="submit" value="Bir sonraki">
+
+            </form>
+
+        {% else %}
+
+            <div class="container">
+                <p>{{ question.question }}</p> 
+            </div> 
+            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+                <input type="text" name="answer">
+                <input type="submit" value="Bir sonraki">
+
+            </form>
+
+        {% endif %}
+
+        {% if question.id == 1 %}
+        {% else %}
+            <form action="{{path('gene_questionnaire_question_tr', {'id': question.id - 1, 'user': user})}}">
+                <input type="submit" value="Bir önceki">
+            </form>
+        {% endif %}
+
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Hayati tehlikesi olan genetik bir rahatsızlık erken ölümlere yol açar.</td>
+                    </tr>
+                    <tr>
+                        <td>Sakat bırakan genetik bir hastalık kişinin iş görmesini veya yaşam kalitesini düşürür.</td>
+                    </tr>
+                    <tr>
+                        <td>Embriyo, doğmamış bir bebeğin veya ceninin erken safhasıdır.</td>
+                    </tr>
+                    <tr>
+                        <td>Bir embriyonun gen mühendisliği, gelecek tüm nesillerin düzeltilmiş genoma sahip olacağı anlamına gelir. Bu da hastalığın veya sağlık sorununun o kişinin çocuklarına GEÇEMEYECEĞİ anlamına gelir.</td>
+                    </tr>
+                    <tr>
+                        <td>Bir çocuğun veya bir yetişkinin gen mühendisliği, genellikle gelecek nesillerin düzeltilmiş genoma sahip OLMAYACAĞI anlamına gelir. Bu da hastalığın veya sağlık sorununun çocuklarına geçebileceği anlamına gelir.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

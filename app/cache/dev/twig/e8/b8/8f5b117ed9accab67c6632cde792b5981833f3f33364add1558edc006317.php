@@ -40,42 +40,114 @@ class __TwigTemplate_e8b88f5b117ed9accab67c6632cde792b5981833f3f33364add1558edc0
 
     <body>
 
-        <div class=\"container\">
-            <h1>Question ";
-        // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "html", null, true);
-        echo "</h1>
-            <p>How much do you agree with the use of genetic editing of cells in ";
-        // line 15
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
-        echo "</p> 
-        </div> 
+        ";
+        // line 13
+        if (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") < 6)) {
+            // line 14
+            echo "
+            <div class=\"container\">
+                <p>How much do you agree with the use of genetic editing of cells in ";
+            // line 16
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+            </div> 
+            <form action=\"";
+            // line 18
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
+            echo "\" method=\"post\">
+                <input type=\"radio\" name=\"answer\" value=\"SA\"> Strongly Agree<br>
+                <input type=\"radio\" name=\"answer\" value=\"A\"> Agree<br>
+                <input type=\"radio\" name=\"answer\" value=\"N\"> Neutral<br>
+                <input type=\"radio\" name=\"answer\" value=\"D\"> Disagree<br>
+                <input type=\"radio\" name=\"answer\" value=\"SD\"> Strongly Disagree<br>
+                <input type=\"radio\" name=\"answer\" value=\"IDK\"> I don’t Know<br>
+                <br>
+                <input type=\"submit\" value=\"Submit\">
+            </form>
 
         ";
-        // line 18
-        if (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 5)) {
-            // line 19
-            echo "            <form action=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_question", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
-            echo "\">
+        } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") < 9)) {
+            // line 30
+            echo "
+            <div class=\"container\">
+                <p>If you could safely genetically edit your embryo would you use this technology to determine: ";
+            // line 32
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+            </div> 
+            <form action=\"";
+            // line 34
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
+            echo "\" method=\"post\">
+                <input type=\"radio\" name=\"answer\" value=\"YES\"> Yes<br>
+                <input type=\"radio\" name=\"answer\" value=\"NO\"> No<br>
+                <br>
+                <input type=\"submit\" value=\"Submit\">
+            </form>
+
+        ";
+        } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 9)) {
+            // line 41
+            echo "    
+
+            <div class=\"container\">
+                <p>If you could safely genetically edit your embryo would you use this technology to determine: ";
+            // line 44
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+            </div>
+            <form action=\"";
+            // line 46
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
+            echo "\" method=\"post\">
+                <input type=\"text\" name=\"answer\">
+            </form>
+
+        ";
+        } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 10)) {
+            // line 51
+            echo "
+            <div class=\"container\">
+                <p>";
+            // line 53
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+            </div> 
+            <form action=\"";
+            // line 55
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
+            echo "\" method=\"post\">
+                <input type=\"radio\" name=\"answer\" value=\"SA\"> Strongly Agree<br>
+                <input type=\"radio\" name=\"answer\" value=\"A\"> Agree<br>
+                <input type=\"radio\" name=\"answer\" value=\"N\"> Neutral<br>
+                <input type=\"radio\" name=\"answer\" value=\"D\"> Disagree<br>
+                <input type=\"radio\" name=\"answer\" value=\"SD\"> Strongly Disagree<br>
+                <input type=\"radio\" name=\"answer\" value=\"IDK\"> I don’t Know<br>
+                <br>
+                <input type=\"submit\" value=\"Submit\">
+            </form>
+
         ";
         } else {
-            // line 21
-            echo "            <form action=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_question", array("id" => ($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") + 1))), "html", null, true);
-            echo "\">
+            // line 67
+            echo "
+            <div class=\"container\">
+                <p>";
+            // line 69
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+            </div> 
+            <form action=\"";
+            // line 71
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"))), "html", null, true);
+            echo "\" method=\"post\">
+                <input type=\"text\" name=\"answer\">
+            </form>
+
         ";
         }
-        // line 23
-        echo "            <input type=\"radio\" name=\"answer\" value=\"SA\"> Strongly Agree<br>
-            <input type=\"radio\" name=\"answer\" value=\"A\"> Agree<br>
-            <input type=\"radio\" name=\"answer\" value=\"N\"> Neutral<br>
-            <input type=\"radio\" name=\"answer\" value=\"D\"> Disagree<br>
-            <input type=\"radio\" name=\"answer\" value=\"SD\"> Strongly Disagree<br>
-            <input type=\"radio\" name=\"answer\" value=\"IDK\"> I don’t Know<br>
-            <br>
-            <input type=\"submit\" value=\"Submit\">
-        </form>
+        // line 76
+        echo "
         <br>
 
         <div class=\"table-responsive\">
@@ -119,6 +191,6 @@ class __TwigTemplate_e8b88f5b117ed9accab67c6632cde792b5981833f3f33364add1558edc0
 
     public function getDebugInfo()
     {
-        return array (  70 => 23,  64 => 21,  58 => 19,  56 => 18,  50 => 15,  46 => 14,  37 => 8,  31 => 4,  28 => 3,);
+        return array (  150 => 76,  142 => 71,  137 => 69,  133 => 67,  118 => 55,  113 => 53,  109 => 51,  101 => 46,  96 => 44,  91 => 41,  80 => 34,  75 => 32,  71 => 30,  56 => 18,  51 => 16,  47 => 14,  45 => 13,  37 => 8,  31 => 4,  28 => 3,);
     }
 }
