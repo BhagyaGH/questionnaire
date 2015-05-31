@@ -12,6 +12,7 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
         $this->blocks = array(
             'head' => array($this, 'block_head'),
             'name' => array($this, 'block_name'),
+            'progress' => array($this, 'block_progress'),
             'content' => array($this, 'block_content'),
             'footer' => array($this, 'block_footer'),
         );
@@ -40,23 +41,32 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
         // line 41
         echo "                    </a>
                 </div>
+
+                <div id=\"navbar\" class=\"navbar-collapse collapse\">
+                    <div class=\"navbar-form navbar-right\">
+                        ";
+        // line 46
+        $this->displayBlock('progress', $context, $blocks);
+        // line 49
+        echo "                    </div>
+                </div>
             </div>
         </nav>
 
         <div class=\"jumbotron\">
             <div class=\"container\">
                 ";
-        // line 48
+        // line 56
         $this->displayBlock('content', $context, $blocks);
-        // line 55
+        // line 63
         echo "            </div>
         </div>
 
         <div id=\"footer\">
             ";
-        // line 59
+        // line 67
         $this->displayBlock('footer', $context, $blocks);
-        // line 62
+        // line 70
         echo "        </div>
 
         <!-- Bootstrap core JavaScript
@@ -64,12 +74,12 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
         <!-- Placed at the end of the document so the pages load faster -->
         <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>
         <script src=\"";
-        // line 68
+        // line 76
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src=\"";
-        // line 70
+        // line 78
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/ie10-viewport-bug-workaround.js"), "html", null, true);
         echo "\"></script>
     </body>
@@ -125,10 +135,18 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
                         ";
     }
 
-    // line 48
+    // line 46
+    public function block_progress($context, array $blocks = array())
+    {
+        // line 47
+        echo "                            
+                        ";
+    }
+
+    // line 56
     public function block_content($context, array $blocks = array())
     {
-        // line 49
+        // line 57
         echo "                    <!-- Main jumbotron for a primary marketing message or call to action -->
                     <h1>Hello, world!</h1>
                     <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -137,10 +155,10 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
                 ";
     }
 
-    // line 59
+    // line 67
     public function block_footer($context, array $blocks = array())
     {
-        // line 60
+        // line 68
         echo "                &copy; Copyright 2015 by PPGE.
             ";
     }
@@ -157,6 +175,6 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
 
     public function getDebugInfo()
     {
-        return array (  144 => 60,  141 => 59,  132 => 49,  129 => 48,  124 => 39,  121 => 38,  109 => 23,  102 => 19,  96 => 16,  83 => 5,  80 => 4,  73 => 70,  68 => 68,  60 => 62,  58 => 59,  52 => 55,  50 => 48,  41 => 41,  39 => 38,  30 => 31,  28 => 4,  23 => 1,);
+        return array (  162 => 68,  159 => 67,  150 => 57,  147 => 56,  142 => 47,  139 => 46,  134 => 39,  131 => 38,  119 => 23,  112 => 19,  106 => 16,  93 => 5,  90 => 4,  83 => 78,  78 => 76,  70 => 70,  68 => 67,  62 => 63,  60 => 56,  51 => 49,  49 => 46,  42 => 41,  40 => 38,  31 => 31,  29 => 4,  24 => 1,);
     }
 }

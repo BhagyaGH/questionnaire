@@ -41,30 +41,37 @@ class UserHindiController extends Controller {
             $user->setBirthYear($request->get('year'));
             $user->setCountry($request->get('country'));
             $user->setEthnicity($request->get('ethnicity'));
+
             $user->setIsReligiousAffiliation($request->get('isRel'));
 
-            $religiousType = $request->get('religious_yes');
-            if ($religiousType == "Other") {
-                $user->setReligiousAffiliationType($request->get('otherRel'));
-            } else {
-                $user->setReligiousAffiliationType($religiousType);
+            if ($user->getIsReligiousAffiliation() == 'yes') {
+                $religiousType = $request->get('rel');
+                if ($religiousType == 'Other') {
+                    $user->setReligiousAffiliationType($request->get('otherRel'));
+                } else {
+                    $user->setReligiousAffiliationType($religiousType);
+                }
             }
 
             $user->setEducation($request->get('edu'));
 
             $user->setIsHealthRelated($request->get('isHealth'));
-            $health = $request->get('heal_yes');
-            if ($health == "Other") {
-                $user->setReligiousAffiliationType($request->get('otherHeal'));
-            } else {
-                $user->setReligiousAffiliationType($health);
+            if ($user->getIsHealthRelated() == 'yes') {
+                $health = $request->get('heal_yes');
+                if ($health == 'Other') {
+                    $user->setHealthRelatedWork($request->get('otherHeal'));
+                } else {
+                    $user->setHealthRelatedWork($health);
+                }
             }
-
             $user->setGeneticEngineering($request->get('gene'));
             $user->setFinancialSituation($request->get('fin'));
             $user->setIsInheritedGenetic($request->get('inh'));
-            $user->setInheritedGeneticWho($request->get('who'));
-            $user->setInheritedGeneticWhat($request->get('what'));
+
+            if ($user->getIsInheritedGenetic() == 'yes') {
+                $user->setInheritedGeneticWho($request->get('who'));
+                $user->setInheritedGeneticWhat($request->get('what'));
+            }
 
             $em1 = $this->getDoctrine()->getEntityManager();
             $em1->persist($user);

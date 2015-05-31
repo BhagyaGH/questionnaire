@@ -9,14 +9,14 @@
     <field name="birthYear" type="string" column="birth_year" length="4" nullable="false"/>
     <field name="country" type="string" column="country" length="2" nullable="false"/>
     <field name="ethnicity" type="string" column="ethnicity" length="60" nullable="false"/>
-    <field name="isReligiousAffiliation" type="boolean" column="is_religious_affiliation" nullable="false"/>
+    <field name="isReligiousAffiliation" type="string" column="is_religious_affiliation" length="3" nullable="false"/>
     <field name="religiousAffiliationType" type="string" column="religious_affiliation_type" length="32" nullable="true"/>
     <field name="education" type="string" column="education" length="30" nullable="false"/>
     <field name="isHealthRelated" type="string" column="is_health_related" length="30" nullable="false"/>
     <field name="healthRelatedWork" type="string" column="health_related_work" length="30" nullable="true"/>
     <field name="geneticEngineering" type="string" column="genetic_engineering" length="30" nullable="false"/>
     <field name="financialSituation" type="string" column="financial_situation" length="30" nullable="false"/>
-    <field name="isInheritedGenetic" type="boolean" column="is_inherited_genetic" nullable="false"/>
+    <field name="isInheritedGenetic" type="string" column="is_inherited_genetic" length="3" nullable="false"/>
     <field name="inheritedGeneticWho" type="string" column="inherited_genetic_who" length="30" nullable="true"/>
     <field name="inheritedGeneticWhat" type="string" column="inherited_genetic_what" length="30" nullable="true"/>
     <field name="timestamp" type="datetime" column="timestamp" nullable="false"/>

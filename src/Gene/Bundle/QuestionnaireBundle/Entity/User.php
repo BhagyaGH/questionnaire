@@ -35,7 +35,7 @@ class User
     private $ethnicity;
 
     /**
-     * @var boolean
+     * @var string
      */
     private $isReligiousAffiliation;
 
@@ -70,7 +70,7 @@ class User
     private $financialSituation;
 
     /**
-     * @var boolean
+     * @var string
      */
     private $isInheritedGenetic;
 
@@ -230,7 +230,7 @@ class User
     /**
      * Set isReligiousAffiliation
      *
-     * @param boolean $isReligiousAffiliation
+     * @param string $isReligiousAffiliation
      * @return User
      */
     public function setIsReligiousAffiliation($isReligiousAffiliation)
@@ -243,7 +243,7 @@ class User
     /**
      * Get isReligiousAffiliation
      *
-     * @return boolean 
+     * @return string 
      */
     public function getIsReligiousAffiliation()
     {
@@ -391,7 +391,7 @@ class User
     /**
      * Set isInheritedGenetic
      *
-     * @param boolean $isInheritedGenetic
+     * @param string $isInheritedGenetic
      * @return User
      */
     public function setIsInheritedGenetic($isInheritedGenetic)
@@ -404,7 +404,7 @@ class User
     /**
      * Get isInheritedGenetic
      *
-     * @return boolean 
+     * @return string 
      */
     public function getIsInheritedGenetic()
     {
