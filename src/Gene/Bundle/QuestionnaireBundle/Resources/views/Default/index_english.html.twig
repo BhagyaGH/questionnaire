@@ -1,29 +1,21 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
+{% block name %}
+    Human Gene Editing
+{% endblock %}
+
 {% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
+    <div class="container">
+        <h3><strong>Would you do it?</strong></h3>
+        <h4><strong>Have your say on a technology that could change humanity</strong></h4>
 
-    <body>
-
-        <div class="container">
-            <h4>Would you do it?</h4>
-            <h4>Have your say on a technology that could change humanity</h4>
-
-            <form action="{{path('gene_questionnaire_user_english')}}">
-                <input type="submit" value="Start Survey">
-            </form>
-        </div>
-
+        <form action="{{path('gene_questionnaire_user_english')}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="Start Survey">
+        </form>
+            
         <br>
-
         <p>{{content[11].question}}</p>
         <p>{{content[12].question}}</p>
         <p>{{content[13].question}}</p>
-
-    </body>
-
+    </div>
 {% endblock %}

@@ -10,6 +10,7 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
         $this->parent = $this->env->loadTemplate("GeneQuestionnaireBundle::base.html.twig");
 
         $this->blocks = array(
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,27 +26,26 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_name($context, array $blocks = array())
     {
         // line 4
-        echo "    <head>
-        <meta charset=\"utf-8\"> 
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-    </head>
+        echo "    Modificacion de genes humanos
+";
+    }
 
-    <body>
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        // line 8
+        echo "    
         <h2>Cuéntanos acerca de ti…</h2>
         <form action=\"";
-        // line 12
+        // line 10
         echo $this->env->getExtension('routing')->getPath("gene_questionnaire_user_save_es");
         echo "\" method=\"post\">
             <div>
                 ";
-        // line 14
+        // line 12
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 0, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -54,9 +54,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <option value=\"F\">Femenino</option>
                 </select>
             </div>
+                <br>
             <div id=\"birthyear\" style=\"display:none;\">    
                 ";
-        // line 22
+        // line 21
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 1, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -179,10 +180,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <option value=\"1900\">1900</option>
                 </select>
             </div>
-
+                <br>
             <div id=\"country\" style=\"display:none;\">
                 ";
-        // line 145
+        // line 144
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 2, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -438,10 +439,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <option value=\"ZW\">Zimbabwe</option>
                 </select>
             </div>
-
+                <br>
             <div id=\"ethnicity\" style=\"display:none;\">
                 ";
-        // line 401
+        // line 400
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 3, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -459,10 +460,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <option value=\"South East Asian (Chinese, Thai, Malay, Filipino, etc)\">Del sudeste asiático (chino, tailandés, malayo, filipino, etc.)</option>
                 </select>
             </div>
-
+                <br>
             <div id=\"religious\" style=\"display:none;\">
                 ";
-        // line 419
+        // line 418
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 4, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -492,10 +493,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <input type=\"text\" name=\"otherRel\" id=\"otherRel\" style=\"display:none;\">                
                 </div>
             </div>
-
+                <br>
             <div id=\"education\" style=\"display:none;\">
                 ";
-        // line 449
+        // line 448
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 5, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -508,10 +509,10 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <option value=\"Finished postgraduate university degree\">Escolaridad a nivel de posgrado concluida</option>
                 </select>
             </div>
-
+                <br>
             <div id=\"health\" style=\"display:none;\">
                 ";
-        // line 462
+        // line 461
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 6, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -531,24 +532,23 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <input type=\"text\" name=\"otherHeal\" id=\"otherHeal\" style=\"display:none;\">
                 </div>
             </div>
-
+                <br>
             <div id=\"gene_eng\" style=\"display:none;\">
                 ";
-        // line 482
+        // line 481
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 7, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
-
-                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have never heard of it\" onclick=\"show8()\" required value=\"I have never heard of it\">从未听说过
+                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have never heard of it\" onclick=\"show8()\" required value=\"I have never heard of it\">Jamás he escuchado al respecto
                 <br>
-                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have heard a little about it\" onclick=\"show8()\">听说过一点点
+                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have heard a little about it\" onclick=\"show8()\">He escuchado un poco al respecto
                 <br>
-                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have heard a lot about it\" onclick=\"show8()\">很了解
+                <input type=\"radio\" name=\"gene\" id=\"gene\" value=\"I have heard a lot about it\" onclick=\"show8()\">He escuchado mucho al respecto
             </div>
-
+                <br>
             <div id=\"financial\" style=\"display:none;\">
                 ";
-        // line 493
+        // line 491
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 8, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -557,12 +557,11 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                 <input type=\"radio\" name=\"fin\" id=\"fin\" value=\"Average wealth\" onclick=\"show9()\">Salario promedio
                 <br>
                 <input type=\"radio\" name=\"fin\" id=\"fin\" value=\"Below average wealth\" onclick=\"show9()\">Por debajo del salario promedio
-
             </div>
-
+                <br>
             <div id=\"inherited\" style=\"display:none;\">
                 ";
-        // line 504
+        // line 501
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 9, array(), "array"), "question"), "html", null, true);
         echo "
                 <br>
@@ -573,7 +572,7 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
 
                 <div id=\"inherited_yes\" style=\"display:none;\">
                     ";
-        // line 512
+        // line 509
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 10, array(), "array"), "question"), "html", null, true);
         echo "
                     <br>
@@ -584,7 +583,7 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     </select>
                     <br>
                     ";
-        // line 520
+        // line 517
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["questions"]) ? $context["questions"] : $this->getContext($context, "questions")), 11, array(), "array"), "question"), "html", null, true);
         echo "
                     <br>
@@ -603,8 +602,8 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
                     <input type=\"text\" name=\"otherWhat\" id=\"otherWhat\" style=\"display:none;\">
                 </div>
             </div>
-
-            <input type=\"submit\" id=\"submitButton\" value=\"Submit\" style=\"display:none;\">
+                    <br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" id=\"submitButton\" value=\"Submit\" style=\"display:none;\">
 
         </form>
 
@@ -743,6 +742,6 @@ class __TwigTemplate_fb7806073486263fadb85e4cfaf15b25f69f1cdaa29ab658ab972d62a4e
 
     public function getDebugInfo()
     {
-        return array (  588 => 520,  577 => 512,  566 => 504,  552 => 493,  538 => 482,  515 => 462,  499 => 449,  466 => 419,  445 => 401,  186 => 145,  60 => 22,  49 => 14,  44 => 12,  36 => 7,  31 => 4,  28 => 3,);
+        return array (  587 => 517,  576 => 509,  565 => 501,  552 => 491,  539 => 481,  516 => 461,  500 => 448,  467 => 418,  446 => 400,  187 => 144,  61 => 21,  49 => 12,  44 => 10,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

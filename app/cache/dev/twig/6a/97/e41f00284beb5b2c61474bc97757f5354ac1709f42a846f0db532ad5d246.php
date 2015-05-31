@@ -10,6 +10,7 @@ class __TwigTemplate_6a97e41f00284beb5b2c61474bc97757f5354ac1709f42a846f0db532ad
         $this->parent = $this->env->loadTemplate("GeneQuestionnaireBundle::base.html.twig");
 
         $this->blocks = array(
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,175 +26,173 @@ class __TwigTemplate_6a97e41f00284beb5b2c61474bc97757f5354ac1709f42a846f0db532ad
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_name($context, array $blocks = array())
     {
         // line 4
-        echo "    <head>
-        <meta charset=\"utf-8\"> 
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-    </head>
+        echo "    Human Gene Editing
+";
+    }
 
-    <body>
-        ";
-        // line 11
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        // line 8
+        echo "
+    ";
+        // line 9
         if (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") < 6)) {
-            // line 12
-            echo "            <div class=\"container\">
-                <p>Hücre genetiğini düzeltme yönteminin kullanımına ne kadar katılıyorsunuz ";
+            // line 10
+            echo "        <div class=\"container\">
+            <p>Hücre genetiğini düzeltme yönteminin kullanımına ne kadar katılıyorsunuz ";
+            // line 11
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+        </div> 
+        <form action=\"";
             // line 13
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
-            echo "</p> 
-            </div> 
-            <form action=\"";
-            // line 15
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer_tr", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\" method=\"post\">
-                <input type=\"radio\" name=\"answer\" value=\"SA\" required value=\"SA\"> Kesinlikle Katılıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"A\"> Katılıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"N\"> Bir fikrim yok<br>
-                <input type=\"radio\" name=\"answer\" value=\"D\"> Katılmıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"SD\"> Kesinlikle Katılmıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"IDK\"> Bilmiyorum<br>
-                <br>
-                <input type=\"submit\" value=\"Bir sonraki\">
+            <input type=\"radio\" name=\"answer\" value=\"SA\" required value=\"SA\"> Kesinlikle Katılıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"A\"> Katılıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"N\"> Bir fikrim yok<br>
+            <input type=\"radio\" name=\"answer\" value=\"D\"> Katılmıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"SD\"> Kesinlikle Katılmıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"IDK\"> Bilmiyorum<br>
+            <br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir sonraki\">
 
-            </form>
+        </form>
 
-        ";
+    ";
         } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") < 9)) {
-            // line 28
+            // line 26
             echo "
-            <div class=\"container\">
-                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: ";
-            // line 30
+        <div class=\"container\">
+            <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: ";
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
             echo "</p> 
-            </div> 
-            <form action=\"";
-            // line 32
+        </div> 
+        <form action=\"";
+            // line 30
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer_tr", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\" method=\"post\">
-                <input type=\"radio\" name=\"answer\" value=\"YES\" required value=\"YES\"> Evet<br>
-                <input type=\"radio\" name=\"answer\" value=\"NO\"> Hayır<br>
-                <br>
-                <input type=\"submit\" value=\"Bir sonraki\">
+            <input type=\"radio\" name=\"answer\" value=\"YES\" required value=\"YES\"> Evet<br>
+            <input type=\"radio\" name=\"answer\" value=\"NO\"> Hayır<br>
+            <br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir sonraki\">
+        </form>
 
-            </form>
-
-        ";
+    ";
         } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 9)) {
-            // line 40
+            // line 37
             echo "    
 
-            <div class=\"container\">
-                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: ";
-            // line 43
+        <div class=\"container\">
+            <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: ";
+            // line 40
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
             echo "</p> 
-            </div>
-            <form action=\"";
-            // line 45
+        </div>
+        <form action=\"";
+            // line 42
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer_tr", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\" method=\"post\">
-                <input type=\"text\" name=\"answer\">
-                <input type=\"submit\" value=\"Bir sonraki\">
-            </form>
+            <input type=\"text\" name=\"answer\">
+            <br><br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir sonraki\">
+        </form>
 
-        ";
+    ";
         } elseif (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 10)) {
+            // line 49
+            echo "
+        <div class=\"container\">
+            <p>";
             // line 51
-            echo "
-            <div class=\"container\">
-                <p>";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
+            echo "</p> 
+        </div> 
+        <form action=\"";
             // line 53
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
-            echo "</p> 
-            </div> 
-            <form action=\"";
-            // line 55
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer_tr", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\" method=\"post\">
-                <input type=\"radio\" name=\"answer\" value=\"SA\" required value=\"SA\"> Kesinlikle Katılıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"A\"> Katılıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"N\"> Bir fikrim yok<br>
-                <input type=\"radio\" name=\"answer\" value=\"D\"> Katılmıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"SD\"> Kesinlikle Katılmıyorum<br>
-                <input type=\"radio\" name=\"answer\" value=\"IDK\"> Bilmiyorum<br>
-                <br>
-                <input type=\"submit\" value=\"Bir sonraki\">
+            <input type=\"radio\" name=\"answer\" value=\"SA\" required value=\"SA\"> Kesinlikle Katılıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"A\"> Katılıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"N\"> Bir fikrim yok<br>
+            <input type=\"radio\" name=\"answer\" value=\"D\"> Katılmıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"SD\"> Kesinlikle Katılmıyorum<br>
+            <input type=\"radio\" name=\"answer\" value=\"IDK\"> Bilmiyorum<br>
+            <br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir sonraki\">
 
-            </form>
+        </form>
 
-        ";
+    ";
         } else {
-            // line 68
+            // line 66
             echo "
-            <div class=\"container\">
-                <p>";
-            // line 70
+        <div class=\"container\">
+            <p>";
+            // line 68
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "question"), "html", null, true);
             echo "</p> 
-            </div> 
-            <form action=\"";
-            // line 72
+        </div> 
+        <form action=\"";
+            // line 70
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_save_answer_tr", array("id" => $this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id"), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\" method=\"post\">
-                <input type=\"text\" name=\"answer\">
-                <input type=\"submit\" value=\"Bir sonraki\">
+            <textarea name=\"answer\" rows=\"4\" cols=\"50\"></textarea>
+            <br><br>
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir sonraki\">
 
-            </form>
+        </form>
 
-        ";
+    ";
         }
-        // line 79
+        // line 78
         echo "
-        ";
-        // line 80
+    <br>
+
+    ";
+        // line 81
         if (($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") == 1)) {
-            // line 81
-            echo "        ";
-        } else {
             // line 82
-            echo "            <form action=\"";
+            echo "    ";
+        } else {
+            // line 83
+            echo "        <form action=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gene_questionnaire_question_tr", array("id" => ($this->getAttribute((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")), "id") - 1), "user" => (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")))), "html", null, true);
             echo "\">
-                <input type=\"submit\" value=\"Bir önceki\">
-            </form>
-        ";
+            <input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Bir önceki\">
+        </form>
+    ";
         }
-        // line 86
+        // line 87
         echo "
-        <br>
+    <br>
 
-        <div class=\"table-responsive\">
-            <table class=\"table table-striped\">
-                <tbody>
-                    <tr>
-                        <td>Hayati tehlikesi olan genetik bir rahatsızlık erken ölümlere yol açar.</td>
-                    </tr>
-                    <tr>
-                        <td>Sakat bırakan genetik bir hastalık kişinin iş görmesini veya yaşam kalitesini düşürür.</td>
-                    </tr>
-                    <tr>
-                        <td>Embriyo, doğmamış bir bebeğin veya ceninin erken safhasıdır.</td>
-                    </tr>
-                    <tr>
-                        <td>Bir embriyonun gen mühendisliği, gelecek tüm nesillerin düzeltilmiş genoma sahip olacağı anlamına gelir. Bu da hastalığın veya sağlık sorununun o kişinin çocuklarına GEÇEMEYECEĞİ anlamına gelir.</td>
-                    </tr>
-                    <tr>
-                        <td>Bir çocuğun veya bir yetişkinin gen mühendisliği, genellikle gelecek nesillerin düzeltilmiş genoma sahip OLMAYACAĞI anlamına gelir. Bu da hastalığın veya sağlık sorununun çocuklarına geçebileceği anlamına gelir.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class=\"table-responsive\">
+        <table class=\"table table-striped\">
+            <tbody>
+                <tr>
+                    <td>Hayati tehlikesi olan genetik bir rahatsızlık erken ölümlere yol açar.</td>
+                </tr>
+                <tr>
+                    <td>Sakat bırakan genetik bir hastalık kişinin iş görmesini veya yaşam kalitesini düşürür.</td>
+                </tr>
+                <tr>
+                    <td>Embriyo, doğmamış bir bebeğin veya ceninin erken safhasıdır.</td>
+                </tr>
+                <tr>
+                    <td>Bir embriyonun gen mühendisliği, gelecek tüm nesillerin düzeltilmiş genoma sahip olacağı anlamına gelir. Bu da hastalığın veya sağlık sorununun o kişinin çocuklarına GEÇEMEYECEĞİ anlamına gelir.</td>
+                </tr>
+                <tr>
+                    <td>Bir çocuğun veya bir yetişkinin gen mühendisliği, genellikle gelecek nesillerin düzeltilmiş genoma sahip OLMAYACAĞI anlamına gelir. Bu da hastalığın veya sağlık sorununun çocuklarına geçebileceği anlamına gelir.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-
-</body>
 
 ";
     }
@@ -210,6 +209,6 @@ class __TwigTemplate_6a97e41f00284beb5b2c61474bc97757f5354ac1709f42a846f0db532ad
 
     public function getDebugInfo()
     {
-        return array (  169 => 86,  161 => 82,  158 => 81,  156 => 80,  153 => 79,  143 => 72,  138 => 70,  134 => 68,  118 => 55,  113 => 53,  109 => 51,  100 => 45,  95 => 43,  90 => 40,  78 => 32,  73 => 30,  69 => 28,  53 => 15,  48 => 13,  45 => 12,  43 => 11,  36 => 7,  31 => 4,  28 => 3,);
+        return array (  172 => 87,  164 => 83,  161 => 82,  159 => 81,  154 => 78,  143 => 70,  138 => 68,  134 => 66,  118 => 53,  113 => 51,  109 => 49,  99 => 42,  94 => 40,  89 => 37,  78 => 30,  73 => 28,  69 => 26,  53 => 13,  48 => 11,  45 => 10,  43 => 9,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

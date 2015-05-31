@@ -10,6 +10,7 @@ class __TwigTemplate_69412f62a52dd5f99ba55dde838298a3cae54496260a0925d87aed669e7
         $this->parent = $this->env->loadTemplate("GeneQuestionnaireBundle::base.html.twig");
 
         $this->blocks = array(
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,20 +26,18 @@ class __TwigTemplate_69412f62a52dd5f99ba55dde838298a3cae54496260a0925d87aed669e7
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_name($context, array $blocks = array())
     {
         // line 4
-        echo "    <head>
-        <meta charset=\"utf-8\"> 
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-    </head>
+        echo "    Human Gene Editing
+";
+    }
 
-    <body>
-
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        // line 8
+        echo "    
         <div class=\"container\">
             <h4>Thank you for completing the questionnaire</h4>
             <h4>If you would like to contact the research team or be informed of results from this work, please email team@humanediting.org</h4>
@@ -59,6 +58,6 @@ class __TwigTemplate_69412f62a52dd5f99ba55dde838298a3cae54496260a0925d87aed669e7
 
     public function getDebugInfo()
     {
-        return array (  36 => 7,  31 => 4,  28 => 3,);
+        return array (  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

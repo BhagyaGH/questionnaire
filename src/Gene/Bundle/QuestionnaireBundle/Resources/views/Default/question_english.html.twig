@@ -1,13 +1,11 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
-{% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
+{% block name %}
+    Human Gene Editing
+{% endblock %}
 
-    <body>
+{% block content %}
+    {% if questions == null %}
         {% if question.id < 6 %}
             <div class="container">
                 <p>How much do you agree with the use of genetic editing of cells in {{ question.question }}</p> 
@@ -20,30 +18,7 @@
                 <input type="radio" name="answer" value="SD"> Strongly Disagree<br>
                 <input type="radio" name="answer" value="IDK"> I don’t Know<br>
                 <br>
-                <input type="submit" value="Next">
-            </form>
-
-        {% elseif question.id < 9 %}
-
-            <div class="container">
-                <p>If you could safely genetically edit your embryo would you use this technology to determine: {{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer', {'id': question.id, 'user': user})}}" method="post">
-                <input type="radio" name="answer" value="YES" required value="YES"> Yes<br>
-                <input type="radio" name="answer" value="NO"> No<br>
-                <br>
-                <input type="submit" value="Next">
-
-            </form>
-
-        {% elseif question.id == 9 %}    
-
-            <div class="container">
-                <p>If you could safely genetically edit your embryo would you use this technology to determine: {{ question.question }}</p> 
-            </div>
-            <form action="{{path('gene_questionnaire_save_answer', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Next">
+                <input class="btn btn-primary btn-lg" type="submit" value="Next">
             </form>
 
         {% elseif question.id == 10 %}
@@ -59,7 +34,7 @@
                 <input type="radio" name="answer" value="SD"> Strongly Disagree<br>
                 <input type="radio" name="answer" value="IDK"> I don’t Know<br>
                 <br>
-                <input type="submit" value="Next">
+                <input class="btn btn-primary btn-lg" type="submit" value="Next">
 
             </form>
 
@@ -69,23 +44,52 @@
                 <p>{{ question.question }}</p> 
             </div> 
             <form action="{{path('gene_questionnaire_save_answer', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Next">
-
+                <textarea name="answer" rows="4" cols="50"></textarea>
+                <br><br>
+                <input class="btn btn-primary btn-lg" type="submit" value="Finish Survey">
             </form>
 
         {% endif %}
 
+    {% else %}
+
+        <div class="container">
+            <p>If you could safely genetically edit your embryo would you use this technology to determine:</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer', {'id': questions[5].id, 'user': user})}}" method="post">
+            {{ questions[5].question }}<br>
+            <input type="radio" name="answer1" value="YES" required value="YES"> Yes
+            <input type="radio" name="answer1" value="NO"> No<br><br>
+            {{ questions[6].question }}<br>
+            <input type="radio" name="answer2" value="YES" required value="YES"> Yes
+            <input type="radio" name="answer2" value="NO"> No<br><br>
+            {{ questions[7].question }}<br>
+            <input type="radio" name="answer3" value="YES" required value="YES"> Yes
+            <input type="radio" name="answer3" value="NO"> No<br><br>
+            {{ questions[8].question }}<br>
+            <input type="text" name="answer4" size="35">
+            <br><br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Next">
+        </form>
+
+    {% endif %}
+
+    <br>
+
+    {% if questions == null %}
         {% if question.id == 1 %}
+        {% elseif question.id == 10 %}
+            <form action="{{path('gene_questionnaire_question', {'id': 5, 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Back">
+            </form>
         {% else %}
-            <form action="{{path('gene_questionnaire_question', {'id': (question.id - 1), 'user': user})}}">
-                <input type="submit" value="Back">
+            <form action="{{path('gene_questionnaire_question', {'id': (question.id-1), 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Back">
             </form>
         {% endif %}
-
         <br>
-
         <div class="table-responsive">
+            <b>As background …</b>
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -106,9 +110,10 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
-
-</body>
+    {% else %}
+        <form action="{{path('gene_questionnaire_question', {'id': 5, 'user': user})}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="Back">
+        </form>
+    {% endif %}
 
 {% endblock %}

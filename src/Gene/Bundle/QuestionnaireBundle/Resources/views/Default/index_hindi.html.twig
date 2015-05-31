@@ -1,29 +1,25 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
+{% block name %}
+    मानव जीन संपादन
+{% endblock %}
+
 {% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
 
-    <body>
+    <div class="container">
+        <h3><strong>क्या आप करने के लिए सहमत है?</strong></h3>
+        <h4><strong>मानवता को बदल सकता है कि एक तकनीक पर आपका कोई कहना है</strong></h4>
 
-        <div class="container">
-            <h4>क्या आप करने के लिए सहमत है?</h4>
-            <h4>मानवता को बदल सकता है कि एक तकनीक पर आपका कोई कहना है</h4>
-
-            <form action="{{path('gene_questionnaire_user_hn')}}">
-                <input type="submit" value="सर्वेक्षण शुरू करें">
-            </form>
-        </div>
-
+        <form action="{{path('gene_questionnaire_user_hn')}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="सर्वेक्षण शुरू करें">
+        </form>
+            
         <br>
-
         <p>{{content[11].question}}</p>
         <p>{{content[12].question}}</p>
         <p>{{content[13].question}}</p>
+        
+    </div>
 
-    </body>
 
 {% endblock %}

@@ -1,115 +1,121 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
-{% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
+{% block name %}
+    Human Gene Editing
+{% endblock %}
 
-    <body>
+{% block content %}
+{% if questions == null %}
         {% if question.id < 6 %}
             <div class="container">
-                <p>Hücre genetiğini düzeltme yönteminin kullanımına ne kadar katılıyorsunuz {{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
-                <input type="radio" name="answer" value="A"> Katılıyorum<br>
-                <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
-                <input type="radio" name="answer" value="D"> Katılmıyorum<br>
-                <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
-                <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
-                <br>
-                <input type="submit" value="Bir sonraki">
+            <p>Hücre genetiğini düzeltme yönteminin kullanımına ne kadar katılıyorsunuz {{ question.question }}</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+            <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
+            <input type="radio" name="answer" value="A"> Katılıyorum<br>
+            <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
+            <input type="radio" name="answer" value="D"> Katılmıyorum<br>
+            <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
+            <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
+            <br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Bir sonraki">
 
-            </form>
-
-        {% elseif question.id < 9 %}
-
-            <div class="container">
-                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: {{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="radio" name="answer" value="YES" required value="YES"> Evet<br>
-                <input type="radio" name="answer" value="NO"> Hayır<br>
-                <br>
-                <input type="submit" value="Bir sonraki">
-
-            </form>
-
-        {% elseif question.id == 9 %}    
-
-            <div class="container">
-                <p>Güvenli bir şekilde embriyonuzu düzeltebilecek olsaydınız, bu tekniği aşağıdakilerden hangilerini belirlemek için kullanırdınız: {{ question.question }}</p> 
-            </div>
-            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Bir sonraki">
-            </form>
+        </form>
 
         {% elseif question.id == 10 %}
 
             <div class="container">
-                <p>{{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
-                <input type="radio" name="answer" value="A"> Katılıyorum<br>
-                <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
-                <input type="radio" name="answer" value="D"> Katılmıyorum<br>
-                <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
-                <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
-                <br>
-                <input type="submit" value="Bir sonraki">
+            <p>{{ question.question }}</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+            <input type="radio" name="answer" value="SA" required value="SA"> Kesinlikle Katılıyorum<br>
+            <input type="radio" name="answer" value="A"> Katılıyorum<br>
+            <input type="radio" name="answer" value="N"> Bir fikrim yok<br>
+            <input type="radio" name="answer" value="D"> Katılmıyorum<br>
+            <input type="radio" name="answer" value="SD"> Kesinlikle Katılmıyorum<br>
+            <input type="radio" name="answer" value="IDK"> Bilmiyorum<br>
+            <br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Bir sonraki">
 
-            </form>
+        </form>
 
         {% else %}
 
             <div class="container">
-                <p>{{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Bir sonraki">
+            <p>{{ question.question }}</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer_tr', {'id': question.id, 'user': user})}}" method="post">
+            <textarea name="answer" rows="4" cols="50"></textarea>
+            <br><br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Bir sonraki">
 
-            </form>
+        </form>
 
         {% endif %}
 
+    {% else %}
+
+        <div class="container">
+            <p>If you could safely genetically edit your embryo would you use this technology to determine:</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer_tr', {'id': questions[5].id, 'user': user})}}" method="post">
+            {{ questions[5].question }}<br>
+            <input type="radio" name="answer1" value="YES" required value="YES"> Evet
+            <input type="radio" name="answer1" value="NO"> Hayır<br><br>
+            {{ questions[6].question }}<br>
+            <input type="radio" name="answer2" value="YES" required value="YES"> Evet
+            <input type="radio" name="answer2" value="NO"> Hayır<br><br>
+            {{ questions[7].question }}<br>
+            <input type="radio" name="answer3" value="YES" required value="YES"> Evet
+            <input type="radio" name="answer3" value="NO"> Hayır<br><br>
+            {{ questions[8].question }}<br>
+            <input type="text" name="answer4" size="35">
+            <br><br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Bir sonraki">
+        </form>
+
+    {% endif %}
+
+    <br>
+
+    {% if questions == null %}
         {% if question.id == 1 %}
+        {% elseif question.id == 10 %}
+            <form action="{{path('gene_questionnaire_question_tr', {'id': 5, 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Bir önceki">
+            </form>
         {% else %}
-            <form action="{{path('gene_questionnaire_question_tr', {'id': question.id - 1, 'user': user})}}">
-                <input type="submit" value="Bir önceki">
+            <form action="{{path('gene_questionnaire_question_tr', {'id': (question.id-1), 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Bir önceki">
             </form>
         {% endif %}
-
         <br>
-
         <div class="table-responsive">
+            <b>Önbilgi olarak …</b>
             <table class="table table-striped">
                 <tbody>
-                    <tr>
-                        <td>Hayati tehlikesi olan genetik bir rahatsızlık erken ölümlere yol açar.</td>
-                    </tr>
-                    <tr>
-                        <td>Sakat bırakan genetik bir hastalık kişinin iş görmesini veya yaşam kalitesini düşürür.</td>
-                    </tr>
-                    <tr>
-                        <td>Embriyo, doğmamış bir bebeğin veya ceninin erken safhasıdır.</td>
-                    </tr>
-                    <tr>
-                        <td>Bir embriyonun gen mühendisliği, gelecek tüm nesillerin düzeltilmiş genoma sahip olacağı anlamına gelir. Bu da hastalığın veya sağlık sorununun o kişinin çocuklarına GEÇEMEYECEĞİ anlamına gelir.</td>
-                    </tr>
-                    <tr>
-                        <td>Bir çocuğun veya bir yetişkinin gen mühendisliği, genellikle gelecek nesillerin düzeltilmiş genoma sahip OLMAYACAĞI anlamına gelir. Bu da hastalığın veya sağlık sorununun çocuklarına geçebileceği anlamına gelir.</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <td>Hayati tehlikesi olan genetik bir rahatsızlık erken ölümlere yol açar.</td>
+                </tr>
+                <tr>
+                    <td>Sakat bırakan genetik bir hastalık kişinin iş görmesini veya yaşam kalitesini düşürür.</td>
+                </tr>
+                <tr>
+                    <td>Embriyo, doğmamış bir bebeğin veya ceninin erken safhasıdır.</td>
+                </tr>
+                <tr>
+                    <td>Bir embriyonun gen mühendisliği, gelecek tüm nesillerin düzeltilmiş genoma sahip olacağı anlamına gelir. Bu da hastalığın veya sağlık sorununun o kişinin çocuklarına GEÇEMEYECEĞİ anlamına gelir.</td>
+                </tr>
+                <tr>
+                    <td>Bir çocuğun veya bir yetişkinin gen mühendisliği, genellikle gelecek nesillerin düzeltilmiş genoma sahip OLMAYACAĞI anlamına gelir. Bu da hastalığın veya sağlık sorununun çocuklarına geçebileceği anlamına gelir.</td>
+                </tr>
+            </tbody>
             </table>
         </div>
-    </div>
-</div>
-
-</body>
+    {% else %}
+        <form action="{{path('gene_questionnaire_question_tr', {'id': 5, 'user': user})}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="Bir önceki">
+        </form>
+    {% endif %}
 
 {% endblock %}

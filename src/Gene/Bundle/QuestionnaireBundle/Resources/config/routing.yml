@@ -10,6 +10,10 @@ gene_questionnaire_question:
     path:   /question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:Default:question }
     
+gene_questionnaire_multi_questions:
+    path:   /question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:Default:multiQuestions }
+    
 gene_questionnaire_save_answer:
     path:   /saveAnswer/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:Default:saveAnswer }
@@ -41,6 +45,10 @@ gene_questionnaire_user_q_ch:
 gene_questionnaire_question_ch:
     path:   /ch/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:question }
+    
+gene_questionnaire_multi_questions_ch:
+    path:   /ch/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultChinese:multiQuestions }
     
 gene_questionnaire_save_answer_ch:
     path:   /ch/saveAnswer/{id}/{user}
@@ -74,6 +82,10 @@ gene_questionnaire_question_fr:
     path:   /fr/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:question }
     
+gene_questionnaire_multi_questions_fr:
+    path:   /fr/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:multiQuestions }
+    
 gene_questionnaire_save_answer_fr:
     path:   /fr/saveAnswer/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultFrench:saveAnswer }
@@ -105,6 +117,10 @@ gene_questionnaire_user_q_hn:
 gene_questionnaire_question_hn:
     path:   /hn/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:question }
+
+gene_questionnaire_multi_questions_hn:
+    path:   /hn/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultHindi:multiQuestions }
     
 gene_questionnaire_save_answer_hn:
     path:   /hn/saveAnswer/{id}/{user}
@@ -138,6 +154,10 @@ gene_questionnaire_question_jp:
     path:   /jp/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:question }
     
+gene_questionnaire_multi_questions_jp:
+    path:   /jp/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:multiQuestions }
+    
 gene_questionnaire_save_answer_jp:
     path:   /jp/saveAnswer/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultJapanese:saveAnswer }
@@ -170,6 +190,10 @@ gene_questionnaire_question_es:
     path:   /es/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:question }
     
+gene_questionnaire_multi_questions:
+    path:   /es/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:multiQuestions }
+    
 gene_questionnaire_save_answer_es:
     path:   /es/saveAnswer/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultSpanish:saveAnswer }
@@ -201,6 +225,10 @@ gene_questionnaire_user_q_tr:
 gene_questionnaire_question_tr:
     path:   /tr/question/{id}/{user}
     defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:question }
+    
+gene_questionnaire_multi_questions:
+    path:   /tr/question/{user}
+    defaults: { _controller: GeneQuestionnaireBundle:DefaultTurkish:multiQuestions }
     
 gene_questionnaire_save_answer_tr:
     path:   /tr/saveAnswer/{id}/{user}

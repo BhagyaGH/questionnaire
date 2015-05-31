@@ -1,13 +1,12 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
-{% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
+{% block name %}
+    Génie Génétique
+{% endblock %}
 
-    <body>
+{% block content %}
+
+    {% if questions == null %}
         {% if question.id < 6 %}
             <div class="container">
                 <p>À quel point êtes-vous d’accord avec la manipulation génétique des cellules {{ question.question }}</p> 
@@ -20,30 +19,7 @@
                 <input type="radio" name="answer" value="SD"> Particulièrement en désaccord<br>
                 <input type="radio" name="answer" value="IDK"> Je ne sais pas<br>
                 <br>
-                <input type="submit" value="Next">
-            </form>
-
-        {% elseif question.id < 9 %}
-
-            <div class="container">
-                <p>Si vous pouviez modifier génétiquement votre fœtus en toute sécurité, utiliseriez-vous cette technologie pour: {{ question.question }}</p> 
-            </div> 
-            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="radio" name="answer" value="YES" required value="YES"> Oui<br>
-                <input type="radio" name="answer" value="NO"> Non<br>
-                <br>
-                <input type="submit" value="Suivant">
-
-            </form>
-
-        {% elseif question.id == 9 %}    
-
-            <div class="container">
-                <p>Si vous pouviez modifier génétiquement votre fœtus en toute sécurité, utiliseriez-vous cette technologie pour: {{ question.question }}</p> 
-            </div>
-            <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Suivant">
+                <input class="btn btn-primary btn-lg" type="submit" value="Suivant">
             </form>
 
         {% elseif question.id == 10 %}
@@ -59,7 +35,7 @@
                 <input type="radio" name="answer" value="SD"> Particulièrement en désaccord<br>
                 <input type="radio" name="answer" value="IDK"> Je ne sais pas<br>
                 <br>
-                <input type="submit" value="Suivant">
+                <input class="btn btn-primary btn-lg" type="submit" value="Suivant">
 
             </form>
 
@@ -69,23 +45,54 @@
                 <p>{{ question.question }}</p> 
             </div> 
             <form action="{{path('gene_questionnaire_save_answer_fr', {'id': question.id, 'user': user})}}" method="post">
-                <input type="text" name="answer">
-                <input type="submit" value="Suivant">
+                <textarea name="answer" rows="4" cols="50"></textarea>
+                <br><br>
+                <input class="btn btn-primary btn-lg" type="submit" value="Suivant">
 
             </form>
 
         {% endif %}
 
+    {% else %}
+
+        <div class="container">
+            <p>Si vous pouviez modifier génétiquement votre fœtus en toute sécurité, utiliseriez-vous cette technologie pour:</p> 
+        </div> 
+        <form action="{{path('gene_questionnaire_save_answer_fr', {'id': questions[5].id, 'user': user})}}" method="post">
+            {{ questions[5].question }}<br>
+            <input type="radio" name="answer1" value="YES" required value="YES"> Oui
+            <input type="radio" name="answer1" value="NO"> Non<br>
+            <br>
+            {{ questions[6].question }}<br>
+            <input type="radio" name="answer2" value="YES" required value="YES"> Oui
+            <input type="radio" name="answer2" value="NO"> Non<br><br>
+            {{ questions[7].question }}<br>
+            <input type="radio" name="answer3" value="YES" required value="YES"> Oui
+            <input type="radio" name="answer3" value="NO"> Non<br><br>
+            {{ questions[8].question }}<br>
+            <input type="text" name="answer4" size="35">
+            <br><br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Suivant">
+        </form>
+
+    {% endif %}
+
+    <br>
+
+    {% if questions == null %}
         {% if question.id == 1 %}
+        {% elseif question.id == 10 %}
+            <form action="{{path('gene_questionnaire_question_fr', {'id': 5, 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Précédent">
+            </form>
         {% else %}
-            <form action="{{path('gene_questionnaire_question_fr', {'id': (question.id - 1), 'user': user})}}">
-                <input type="submit" value="Précédent">
+            <form action="{{path('gene_questionnaire_question_fr', {'id': (question.id-1), 'user': user})}}">
+                <input class="btn btn-primary btn-lg" type="submit" value="Précédent">
             </form>
         {% endif %}
-
         <br>
-
         <div class="table-responsive">
+            <b>Avec comme données...</b>
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -106,9 +113,10 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
-
-</body>
+    {% else %}
+        <form action="{{path('gene_questionnaire_question_fr', {'id': 5, 'user': user})}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="Précédent">
+        </form>
+    {% endif %}
 
 {% endblock %}

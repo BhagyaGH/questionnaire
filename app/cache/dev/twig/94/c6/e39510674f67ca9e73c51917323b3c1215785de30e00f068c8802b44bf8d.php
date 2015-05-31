@@ -7,200 +7,142 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = false;
 
         $this->blocks = array(
-            'stylesheets' => array($this, 'block_stylesheets'),
-            'javascripts' => array($this, 'block_javascripts'),
-            'body' => array($this, 'block_body'),
-            'flashes' => array($this, 'block_flashes'),
-            'sidebar' => array($this, 'block_sidebar'),
+            'head' => array($this, 'block_head'),
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
+            'footer' => array($this, 'block_footer'),
         );
-    }
-
-    protected function doGetParent(array $context)
-    {
-        return "::base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
-
-    // line 3
-    public function block_stylesheets($context, array $blocks = array())
-    {
+        // line 1
+        echo "<!DOCTYPE html>
+<html lang=\"en\">
+    <head>
+        ";
         // line 4
-        echo "    <link rel=\"stylesheet\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.minbo.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen, projection\">
-    <link rel=\"stylesheet\" href=\"";
-        // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/main.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen, projection\">
-";
-    }
+        $this->displayBlock('head', $context, $blocks);
+        // line 31
+        echo "    </head>
 
-    // line 8
-    public function block_javascripts($context, array $blocks = array())
-    {
-        // line 9
-        echo "    <script type=\"text/javascript\" src=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/jquery-1.7.1.min.js"), "html", null, true);
-        echo "\"></script>
-    <script type=\"text/javascript\" src=\"";
-        // line 10
+    <body>
+        <nav class=\"navbar navbar-inverse navbar-fixed-top\">
+            <div class=\"container\">
+                <div class=\"navbar-header\">
+                    <a class=\"navbar-brand\" href=\"#\">
+                        ";
+        // line 38
+        $this->displayBlock('name', $context, $blocks);
+        // line 41
+        echo "                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class=\"jumbotron\">
+            <div class=\"container\">
+                ";
+        // line 48
+        $this->displayBlock('content', $context, $blocks);
+        // line 55
+        echo "            </div>
+        </div>
+
+        <div id=\"footer\">
+            ";
+        // line 59
+        $this->displayBlock('footer', $context, $blocks);
+        // line 62
+        echo "        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>
+        <script src=\"";
+        // line 68
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
-    <script type=\"text/javascript\" src=\"";
-        // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/functions.js"), "html", null, true);
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src=\"";
+        // line 70
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/js/ie10-viewport-bug-workaround.js"), "html", null, true);
         echo "\"></script>
-";
+    </body>
+</html>";
     }
 
-    // line 14
-    public function block_body($context, array $blocks = array())
+    // line 4
+    public function block_head($context, array $blocks = array())
     {
-        // line 15
-        echo "    <div class=\"navbar navbar-fixed-top\">
-        <div class=\"navbar-inner\">
-            <div class=\"container-fluid\">
-                <a class=\"btn btn-navbar\" data-toggle=\"collapse\" data-target=\".nav-collapse\">
-                    <span class=\"icon-bar\"></span>
-                    <span class=\"icon-bar\"></span>
-                    <span class=\"icon-bar\"></span>
-                </a>
-                
-                </div>
-            </div>
-        </div>
-    </div>
+        // line 5
+        echo "            <meta charset=\"utf-8\">
+            <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+            <meta name=\"description\" content=\"\">
+            <meta name=\"author\" content=\"\">
+            <link rel=\"icon\" href=\"../../favicon.ico\">
 
-    <hr />
+            <title>Human Gene Editing</title>
 
-    <div class=\"container-fluid\">
+            <!-- Bootstrap core CSS -->
+            <link href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+
+            <!-- Custom styles for this template -->
+            <link href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/jumbotron.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+
+            <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+            <!--[if lt IE 9]><script src=\"../../assets/js/ie8-responsive-file-warning.js\"></script><![endif]-->
+            <script src=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/assets/js/ie-emulation-modes-warning.js"), "html", null, true);
+        echo "\"></script>
+
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]>
+              <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>
+              <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+            <![endif]-->
         ";
-        // line 32
-        $this->displayBlock('flashes', $context, $blocks);
-        // line 45
-        echo "
-        <div class=\"row-fluid\">
-            <div class=\"span2\">
-                <div class=\"sidebar-nav\">
-                    ";
-        // line 49
-        $this->displayBlock('sidebar', $context, $blocks);
-        // line 54
-        echo "
-                </div>
-            </div>
-            <div id=\"content\" class=\"span10\">
-                ";
-        // line 58
-        $this->displayBlock('content', $context, $blocks);
-        // line 99
-        echo "
-            </div>
-        </div>
-
-    </div>
-";
     }
 
-    // line 32
-    public function block_flashes($context, array $blocks = array())
+    // line 38
+    public function block_name($context, array $blocks = array())
     {
-        // line 33
-        echo "            ";
-        if ((twig_length_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all")) > 0)) {
-            // line 34
-            echo "                <div class=\"row-fluid\">
-                    <div class=\"span12\" id=\"flash\">
+        // line 39
+        echo "                            Project name
                         ";
-            // line 36
-            $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
-            foreach ($context['_seq'] as $context["type"] => $context["flashMessages"]) {
-                // line 37
-                echo "                            <div class=\"";
-                echo twig_escape_filter($this->env, (isset($context["key"]) ? $context["key"] : $this->getContext($context, "key")), "html", null, true);
-                echo "\">
-                                ";
-                // line 38
-                echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans((isset($context["message"]) ? $context["message"] : $this->getContext($context, "message")), array(), "FOSUserBundle"), "html", null, true);
-                echo "
-                            </div>
-                        ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['type'], $context['flashMessages'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 41
-            echo "                    </div>
-                </div>
-            ";
-        }
-        // line 44
-        echo "        ";
     }
 
-    // line 49
-    public function block_sidebar($context, array $blocks = array())
-    {
-        // line 50
-        echo "                        <div class=\"well\">
-                            <h3>Human Gene Editing</h3>
-                        </div>
-                    ";
-    }
-
-    // line 58
+    // line 48
     public function block_content($context, array $blocks = array())
     {
-        // line 59
-        echo "                    <div class=\"hero-unit\">
-                        <h1>Hello, world!</h1>
-                        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                        <p><a class=\"btn btn-primary btn-large\">Learn more &raquo;</a></p>
-                    </div>
-                    <div class=\"row-fluid\">
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                    </div>
-                    <div class=\"row-fluid\">
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                        <div class=\"span4\">
-                            <h2>Heading</h2>
-                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                            <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>
-                        </div>
-                    </div>
+        // line 49
+        echo "                    <!-- Main jumbotron for a primary marketing message or call to action -->
+                    <h1>Hello, world!</h1>
+                    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                    <p><a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more &raquo;</a></p>
+
                 ";
+    }
+
+    // line 59
+    public function block_footer($context, array $blocks = array())
+    {
+        // line 60
+        echo "                &copy; Copyright 2015 by PPGE.
+            ";
     }
 
     public function getTemplateName()
@@ -215,6 +157,6 @@ class __TwigTemplate_94c6e39510674f67ca9e73c51917323b3c1215785de30e00f068c8802b4
 
     public function getDebugInfo()
     {
-        return array (  164 => 59,  161 => 58,  154 => 50,  151 => 49,  147 => 44,  142 => 41,  133 => 38,  128 => 37,  124 => 36,  120 => 34,  117 => 33,  114 => 32,  105 => 99,  103 => 58,  97 => 54,  95 => 49,  89 => 45,  87 => 32,  68 => 15,  65 => 14,  59 => 11,  55 => 10,  50 => 9,  47 => 8,  41 => 5,  36 => 4,  33 => 3,);
+        return array (  144 => 60,  141 => 59,  132 => 49,  129 => 48,  124 => 39,  121 => 38,  109 => 23,  102 => 19,  96 => 16,  83 => 5,  80 => 4,  73 => 70,  68 => 68,  60 => 62,  58 => 59,  52 => 55,  50 => 48,  41 => 41,  39 => 38,  30 => 31,  28 => 4,  23 => 1,);
     }
 }

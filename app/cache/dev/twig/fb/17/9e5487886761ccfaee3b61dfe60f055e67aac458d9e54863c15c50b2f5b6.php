@@ -10,6 +10,7 @@ class __TwigTemplate_fb179e5487886761ccfaee3b61dfe60f055e67aac458d9e54863c15c50b
         $this->parent = $this->env->loadTemplate("GeneQuestionnaireBundle::base.html.twig");
 
         $this->blocks = array(
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,20 +26,18 @@ class __TwigTemplate_fb179e5487886761ccfaee3b61dfe60f055e67aac458d9e54863c15c50b
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_name($context, array $blocks = array())
     {
         // line 4
-        echo "    <head>
-        <meta charset=\"utf-8\"> 
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-    </head>
+        echo "    ヒト遺伝子編集
+";
+    }
 
-    <body>
-
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        // line 8
+        echo "    
         <div class=\"container\">
             <h4>ご協力ありがとうございました。</h4>
             <h4>研究チームへのご連絡、このアンケートの結果の通知を希望の場合はメールでご連絡ください team@humanediting.org</h4>
@@ -59,6 +58,6 @@ class __TwigTemplate_fb179e5487886761ccfaee3b61dfe60f055e67aac458d9e54863c15c50b
 
     public function getDebugInfo()
     {
-        return array (  36 => 7,  31 => 4,  28 => 3,);
+        return array (  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

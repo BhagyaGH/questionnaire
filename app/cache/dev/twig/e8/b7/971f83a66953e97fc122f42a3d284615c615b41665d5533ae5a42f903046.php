@@ -10,6 +10,7 @@ class __TwigTemplate_e8b7971f83a66953e97fc122f42a3d284615c615b41665d5533ae5a42f9
         $this->parent = $this->env->loadTemplate("GeneQuestionnaireBundle::base.html.twig");
 
         $this->blocks = array(
+            'name' => array($this, 'block_name'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -25,20 +26,18 @@ class __TwigTemplate_e8b7971f83a66953e97fc122f42a3d284615c615b41665d5533ae5a42f9
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_name($context, array $blocks = array())
     {
         // line 4
-        echo "    <head>
-        <meta charset=\"utf-8\"> 
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/genequestionnaire/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-    </head>
+        echo "    Modificacion de genes humanos
+";
+    }
 
-    <body>
-
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        // line 8
+        echo "   
         <div class=\"container\">
             <h4>Gracias por completar el cuestionario.</h4>
             <h4>Si te gustaria contactar al equipo cientifico o recibir informacion sobre los resultados de este proyecto, por favor manda un email a team@humanediting.org</h4>
@@ -59,6 +58,6 @@ class __TwigTemplate_e8b7971f83a66953e97fc122f42a3d284615c615b41665d5533ae5a42f9
 
     public function getDebugInfo()
     {
-        return array (  36 => 7,  31 => 4,  28 => 3,);
+        return array (  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

@@ -149,9 +149,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_user_q')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // gene_questionnaire_question
-        if (0 === strpos($pathinfo, '/question') && preg_match('#^/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultController::questionAction',));
+        if (0 === strpos($pathinfo, '/question')) {
+            // gene_questionnaire_question
+            if (preg_match('#^/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultController::questionAction',));
+            }
+
+            // gene_questionnaire_multi_questions
+            if (preg_match('#^/question/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_multi_questions')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultController::multiQuestionsAction',));
+            }
+
         }
 
         // gene_questionnaire_save_answer
@@ -207,9 +215,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_user_q_ch')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultChineseController::indexAction',));
             }
 
-            // gene_questionnaire_question_ch
-            if (0 === strpos($pathinfo, '/ch/question') && preg_match('#^/ch/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_ch')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultChineseController::questionAction',));
+            if (0 === strpos($pathinfo, '/ch/question')) {
+                // gene_questionnaire_question_ch
+                if (preg_match('#^/ch/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_ch')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultChineseController::questionAction',));
+                }
+
+                // gene_questionnaire_multi_questions_ch
+                if (preg_match('#^/ch/question/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_multi_questions_ch')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultChineseController::multiQuestionsAction',));
+                }
+
             }
 
             // gene_questionnaire_save_answer_ch
@@ -267,9 +283,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_user_q_fr')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultFrenchController::indexAction',));
             }
 
-            // gene_questionnaire_question_fr
-            if (0 === strpos($pathinfo, '/fr/question') && preg_match('#^/fr/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_fr')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultFrenchController::questionAction',));
+            if (0 === strpos($pathinfo, '/fr/question')) {
+                // gene_questionnaire_question_fr
+                if (preg_match('#^/fr/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_fr')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultFrenchController::questionAction',));
+                }
+
+                // gene_questionnaire_multi_questions_fr
+                if (preg_match('#^/fr/question/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_multi_questions_fr')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultFrenchController::multiQuestionsAction',));
+                }
+
             }
 
             // gene_questionnaire_save_answer_fr
@@ -327,9 +351,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_user_q_hn')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultHindiController::indexAction',));
             }
 
-            // gene_questionnaire_question_hn
-            if (0 === strpos($pathinfo, '/hn/question') && preg_match('#^/hn/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_hn')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultHindiController::questionAction',));
+            if (0 === strpos($pathinfo, '/hn/question')) {
+                // gene_questionnaire_question_hn
+                if (preg_match('#^/hn/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_hn')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultHindiController::questionAction',));
+                }
+
+                // gene_questionnaire_multi_questions_hn
+                if (preg_match('#^/hn/question/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_multi_questions_hn')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultHindiController::multiQuestionsAction',));
+                }
+
             }
 
             // gene_questionnaire_save_answer_hn
@@ -387,9 +419,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_user_q_jp')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultJapaneseController::indexAction',));
             }
 
-            // gene_questionnaire_question_jp
-            if (0 === strpos($pathinfo, '/jp/question') && preg_match('#^/jp/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_jp')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultJapaneseController::questionAction',));
+            if (0 === strpos($pathinfo, '/jp/question')) {
+                // gene_questionnaire_question_jp
+                if (preg_match('#^/jp/question/(?P<id>[^/]++)/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_question_jp')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultJapaneseController::questionAction',));
+                }
+
+                // gene_questionnaire_multi_questions_jp
+                if (preg_match('#^/jp/question/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'gene_questionnaire_multi_questions_jp')), array (  '_controller' => 'Gene\\Bundle\\QuestionnaireBundle\\Controller\\DefaultJapaneseController::multiQuestionsAction',));
+                }
+
             }
 
             // gene_questionnaire_save_answer_jp

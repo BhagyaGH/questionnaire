@@ -1,22 +1,17 @@
 {% extends 'GeneQuestionnaireBundle::base.html.twig' %}
 
+{% block name %}
+    ヒト遺伝子編集
+{% endblock %}
+
 {% block content %}
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('bundles/genequestionnaire/css/bootstrap.min.css') }}" rel="stylesheet">
-    </head>
+    <div class="container">
+        <strong><h4>意志はありますか？</h4></strong>
+        <strong><h4>人間性を変えることができる技術についてご意見を教えてください。</h4></strong>
 
-    <body>
-
-        <div class="container">
-            <h4>意志はありますか？</h4>
-            <h4>人間性を変えることができる技術についてご意見を教えてください。</h4>
-
-            <form action="{{path('gene_questionnaire_user_jp')}}">
-                <input type="submit" value="アンケートを開始">
-            </form>
-        </div>
+        <form action="{{path('gene_questionnaire_user_jp')}}">
+            <input class="btn btn-primary btn-lg" type="submit" value="アンケートを開始">
+        </form>
 
         <br>
 
@@ -24,6 +19,6 @@
         <p>{{content[12].question}}</p>
         <p>{{content[13].question}}</p>
 
-    </body>
+    </div>
 
 {% endblock %}
