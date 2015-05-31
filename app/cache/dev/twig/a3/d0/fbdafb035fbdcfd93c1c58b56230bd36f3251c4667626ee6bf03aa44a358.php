@@ -49,15 +49,15 @@ class __TwigTemplate_a3d0fbdafb035fbdcfd93c1c58b56230bd36f3251c4667626ee6bf03aa4
         </form>
             
         <br>
-        <p>";
+        <p style=\"font-size:90%\">";
         // line 17
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["content"]) ? $context["content"] : $this->getContext($context, "content")), 11, array(), "array"), "question"), "html", null, true);
         echo "</p>
-        <p>";
+        <p style=\"font-size:90%\">";
         // line 18
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["content"]) ? $context["content"] : $this->getContext($context, "content")), 12, array(), "array"), "question"), "html", null, true);
         echo "</p>
-        <p>";
+        <p style=\"font-size:90%\">";
         // line 19
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["content"]) ? $context["content"] : $this->getContext($context, "content")), 13, array(), "array"), "question"), "html", null, true);
         echo "</p>
