@@ -4,6 +4,18 @@
     Modificacion de genes humanos
 {% endblock %}
 
+{% block progress %}
+    {% if questions == null %}
+        {% if question.id < 6 %}
+            <img src="{{ asset('bundles/genequestionnaire/img/' ~ question.id ~ '.png') }}" >
+        {% else %}
+            <img src="{{ asset('bundles/genequestionnaire/img/' ~ (question.id-4) ~ '.png') }}" >
+        {% endif %}
+    {% else %}
+        <img src="{{ asset('bundles/genequestionnaire/img/5.png') }}" >
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
    {% if questions == null %}

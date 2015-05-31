@@ -27,6 +27,9 @@ class UserSpanishController extends Controller {
             
             $user = new User();
             
+            $ip = $this->container->get('request')->getClientIp();
+            $user->setIp($ip);
+            
             if(($id[0]['MAX(reference)']) == null) {
                 $user->setReference(0);
             }

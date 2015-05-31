@@ -16,7 +16,6 @@ class UserController extends Controller {
 
     public function saveUserAction(Request $request) {
         if ($request->getMethod() == 'POST') {
-
             $em = $this->getDoctrine()->getEntityManager();
             $connection = $em->getConnection();
             $sql = "SELECT MAX(reference) FROM user;";
@@ -27,6 +26,9 @@ class UserController extends Controller {
 
             $user = new User();
 
+            $ip = $this->container->get('request')->getClientIp();
+            $user->setIp($ip);
+            
             if (($id[0]['MAX(reference)']) == null) {
                 $user->setReference(0);
             } else {

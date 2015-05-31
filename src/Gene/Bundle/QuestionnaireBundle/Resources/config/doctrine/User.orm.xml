@@ -21,6 +21,7 @@
     <field name="inheritedGeneticWhat" type="string" column="inherited_genetic_what" length="30" nullable="true"/>
     <field name="timestamp" type="datetime" column="timestamp" nullable="false"/>
     <field name="reference" type="integer" column="reference" nullable="false"/>
+    <field name="ip" type="text" column="ip" nullable="true"/>
     <many-to-many field="question" target-entity="QuestionEnglish" inversed-by="user">
       <join-table name="user_answers">
         <join-columns>

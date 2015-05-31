@@ -95,6 +95,11 @@ class User
     private $reference;
 
     /**
+     * @var string
+     */
+    private $ip;
+
+    /**
      * @var integer
      */
     private $id;
@@ -501,6 +506,29 @@ class User
     public function getReference()
     {
         return $this->reference;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     * @return User
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string 
+     */
+    public function getIp()
+    {
+        return $this->ip;
     }
 
     /**

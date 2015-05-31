@@ -1129,3 +1129,8 @@ abd7ab,::1,POST,http://localhost/HumanGeneEditing/web/app_dev.php/ch/saveAnswer/
 ea7cc5,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/ch/question/11/46,1433081098,
 1b7d20,::1,POST,http://localhost/HumanGeneEditing/web/app_dev.php/ch/saveAnswer/11/46,1433081103,
 299a51,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/ch/thankyou,1433081103,
+20f7b1,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/,1433081601,
+35379a,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/tellusaboutyou,1433081603,
+59486f,::1,POST,http://localhost/HumanGeneEditing/web/app_dev.php/tellusaboutyou/save,1433081619,
+dec30d,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/user/47,1433081619,
+1ff15c,::1,GET,http://localhost/HumanGeneEditing/web/app_dev.php/question/1/47,1433081620,
